@@ -2,14 +2,17 @@
 This as the view in a MVC pattern, and is responsible for all
 user interaction. For game logix see the FBULLCOWGAME class. 
 */
+#pragma once
 
 #include <iostream>
 #include <string>
 #include "FBullCowGame.h"
 
+// tom make syntax unreal friendly
 using FText = std::string;
 using int32 = int;
 
+//function prototypes as outside a class
 void PrintIntro();
 void PlayGame();
 FText GetGuess();
@@ -18,7 +21,7 @@ bool AskToPlayAgain();
 void PrintGameSummary();
 
 
-FBullCowGame BCGame; //instantiate a new game
+FBullCowGame BCGame; //instantiate a new game, which we use across plays
 
 //entry point for application
 int main()
@@ -61,16 +64,20 @@ void PlayGame()
 	}
 	PrintGameSummary();
 	return;
-	// TODO summaris game
 }
-
 
 
 //introduce the game
 void PrintIntro() {
-
-
-	std::cout << "\n\nWelcome to Bulls and Cows, a fun word game" << std::endl;
+	
+	std::cout << "Welcome to Bulls and Cows, a fun word game.\n";
+	std::cout << std::endl;
+	std::cout << "          }   {         ___ " << std::endl;
+	std::cout << "          (o o)        (o o) " << std::endl;
+	std::cout << "   /-------\\ /          \\ /-------\\ " << std::endl;
+	std::cout << "  / | BULL |O            O| COW  | \\ " << std::endl;
+	std::cout << " *  |-,--- |              |------|  * " << std::endl;
+	std::cout << "    ^      ^              ^      ^ " << std::endl;
 	std::cout << "Can you guess the " << BCGame.GetHiddenWorldLength() << " letter isogram I'm thinking of?" << std::endl;
 	return;
 }

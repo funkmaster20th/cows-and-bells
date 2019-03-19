@@ -11,9 +11,7 @@ FBullCowGame::FBullCowGame() {
 void FBullCowGame::Reset() 
 {
 
-	constexpr int32 MAX_TRIES = 5;
-
-	MyMaxTries = MAX_TRIES;
+	constexpr int32 MAX_TRIES = 3;
 
 	const FString HIDDEN_WORD = "planet";
 
@@ -27,7 +25,8 @@ void FBullCowGame::Reset()
 
 int32 FBullCowGame::GetMaxTries() const
 {
-	return MyMaxTries;
+	TMap<int32, int32> WordLengthToMaxTries{{ 3,4 }, { 4,7 }, { 5,10 }, { 6,16 }};
+	return WordLengthToMaxTries[MyHiddenWord.length()];
 }
 
 int32 FBullCowGame::GetCurrentTry() const
